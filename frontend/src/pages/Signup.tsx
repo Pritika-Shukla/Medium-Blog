@@ -4,15 +4,13 @@ import Auth from '../components/Auth';
 
 const Signup = () => {
   return (
-    <div className="grid grid-cols-2 h-screen">
-      {/* Left side - reserved for other content */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 h-screen">
       <div className="bg-white flex justify-center items-center">
-        {/* Place any content you want on the left side here */}
-      <Auth/>
+      <Auth type='signup'/>
       </div>
-
-      {/* Right side - Qoute component */}
-      <Qoute />
+      <div className='hidden lg:block'>
+    <Qoute  />
+    </div>
     </div>
   );
 };

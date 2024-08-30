@@ -1,56 +1,64 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, UserRound } from "lucide-react";
+import { Mail, UserRound, KeyRound } from "lucide-react";
 
-const Auth = () => {
+const Auth = ({ type }: { type: "signup" | "signin" }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to an API
+
     console.log({ username, email, password });
   };
 
   return (
-    <div className="flex justify-center flex-col">
+    <div className="flex justify-center flex-col w-1/2">
       <div>
-        <h1 className="font-extrabold text-3xl mb-3">Create an account</h1>
+        <h1 className="font-extrabold text-3xl mb-3 ">
+          {type === "signup" ? "Create an account" : "Sign in to your account"}
+        </h1>
       </div>
       <div>
         <p className="text-gray-400 font-semibold mb-4">
-          Already have an account?
-          <Link to={"/signin"} className="underline text-gray-400 font-bold">
-            {" "}
-            Login
+          {type === "signup"
+            ? "Already have an account ?"
+            : "Don't have an account ?"}
+          <Link
+            className="pl-2 underline"
+            to={type === "signin" ? "/signup" : "/signin"}
+          >
+            {type === "signin" ? "Sign up" : "Sign in"}
           </Link>
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="grid gap-6 mb-6">
         <div>
-          <label
-            htmlFor="username"
-            className="block mb-3 text-base font-semibold text-gray-900"
-          >
-            Username
-          </label>
-          <div className="relative">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-              <UserRound className="text-gray-400" />
-            </span>
-            <input
-              type="text"
-              id="username"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10"
-              placeholder="Enter your username"
-              required
-              onChange={(e) => setUsername(e.target.value)}
-            />
-           
-            
-          </div>
+          {type === "signup" ? (
+            <>
+              <label
+                htmlFor="username"
+                className="block mb-3 text-base font-semibold text-gray-900"
+              >
+                Username
+              </label>
+              <div className="relative">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <UserRound className="text-gray-400" />
+                </span>
+                <input
+                  type="text"
+                  id="username"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10"
+                  placeholder="Enter your username"
+                  required
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+            </>
+          ) : null}
         </div>
 
         <div>
@@ -82,22 +90,26 @@ const Auth = () => {
           >
             Password
           </label>
-          <input
-            type="password"
-            id="password"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            placeholder="Enter your password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="relative">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3 ">
+              <KeyRound className="text-gray-400" />
+            </span>
+            <input
+              type="password"
+              id="password"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10 "
+              placeholder="Enter your password"
+              required
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
         </div>
-
         <div>
           <button
             type="submit"
             className="w-full bg-black p-2 text-white rounded-lg"
           >
-            Sign Up
+            {type === "signup" ? "Sign Up" : "Sign In"}
           </button>
         </div>
       </form>

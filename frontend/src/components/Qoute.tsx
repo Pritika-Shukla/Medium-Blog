@@ -1,5 +1,3 @@
-import React from "react";
-
 const Quote = () => {
   return (
     <div className="flex flex-col justify-center min-h-screen bg-slate-200 p-8">

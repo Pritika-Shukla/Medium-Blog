@@ -9,6 +9,7 @@ interface BlogCardProps {
 
 const BlogCard = ({ author, title, content, publishDate }: BlogCardProps) => {
   return (
+    
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2 ">
         <Avatar name={author}  />
@@ -26,7 +27,7 @@ const BlogCard = ({ author, title, content, publishDate }: BlogCardProps) => {
   );
 };
 
-function Avatar({ name }: { name: string }) {
+export function Avatar({ name }: { name: string }) {
   const nameParts = name.split(' ');
   const surnameInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1][0] : '';
   

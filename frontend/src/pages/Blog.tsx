@@ -1,6 +1,6 @@
 import BlogCard from "../components/BlogCard"
 import Navbar from "../components/Navbar"
-import useBlogs from "../hooks"
+import { useBlogs } from "../hooks";
 
 const Blog = () => {
 
@@ -14,7 +14,7 @@ const Blog = () => {
 
   
     <div className="flex justify-center w-screen mx-auto h-screen flex-col items-center">
-   {blogs.map(blog => <BlogCard
+   {blogs.map((blog: { id: number; author: { username: string; }; title: string; content: string; }) => <BlogCard
    id={blog.id}
  author={blog.author.username || "Anonymous"}
  title={blog.title}

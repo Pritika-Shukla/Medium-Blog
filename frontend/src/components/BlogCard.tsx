@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface BlogCardProps {
@@ -11,8 +10,9 @@ interface BlogCardProps {
 
 const BlogCard = ({ id, author, title, content, publishDate }: BlogCardProps) => {
   return (
-    <Link to={`/blog/${id}`}>
+    
     <div className="flex flex-col w-7/12 gap-2">
+     <Link to={`/blog/${id}`}>
       <div className="flex items-center gap-2 cursor-pointer ">
         <Avatar name={author}  />
         <p className="font-semibold">{author}</p>
@@ -25,8 +25,9 @@ const BlogCard = ({ id, author, title, content, publishDate }: BlogCardProps) =>
         {`${Math.ceil(content.length / 100)} minute(s) read`}
       </div>
       <div className="border border-b-0 mt-2"></div>
+      </Link>
     </div>
-    </Link>
+   
   );
 };
 

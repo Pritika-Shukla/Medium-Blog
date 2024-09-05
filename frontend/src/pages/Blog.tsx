@@ -13,8 +13,9 @@ const Blog = () => {
 <Navbar/>
 
   
-    <div className="flex justify-center w-3/5 mx-auto h-screen flex-col items-center">
+    <div className="flex justify-center w-screen mx-auto h-screen flex-col items-center">
    {blogs.map(blog => <BlogCard
+   id={blog.id}
  author={blog.author.username || "Anonymous"}
  title={blog.title}
  content={blog.content}

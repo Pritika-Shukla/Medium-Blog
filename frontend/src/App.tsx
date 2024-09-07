@@ -4,6 +4,7 @@ import Blog from "./pages/Blog";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Blogs from "./pages/Blogs";
+import Publish from "./pages/Publish";
 const App = () => {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/signin" element={<Signin />}></Route>
         <Route path="/blog" element={<Blog />}></Route>
         <Route path="/blog/:id" element={<Blogs />}></Route>
+        <Route path="/publish" element={<Publish />}></Route> 
       </Routes>
     </BrowserRouter>
   );

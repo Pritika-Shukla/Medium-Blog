@@ -12,11 +12,14 @@ const Auth: React.FC<{ type: "signup" | "signin" }> = ({ type }) => {
 
   async function sendRequest() {
     try {
-      const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, {
-        ...(type === "signup" && { username }),
-        password,
-        email,
-      });
+      const response = await axios.post(
+        `${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`,
+        {
+          ...(type === "signup" && { username }),
+          password,
+          email,
+        }
+      );
       const jwt = response.data;
       localStorage.setItem("jwt", jwt);
       navigate("/blogs");
@@ -122,8 +125,8 @@ const Auth: React.FC<{ type: "signup" | "signin" }> = ({ type }) => {
           <button
             type="submit"
             className="w-full bg-black p-2 text-white rounded-lg"
-           onClick={sendRequest}
-        >
+            onClick={sendRequest}
+          >
             {type === "signup" ? "Sign Up" : "Sign In"}
           </button>
         </div>

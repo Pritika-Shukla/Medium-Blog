@@ -12,6 +12,7 @@
   "dependencies": {
     "@pritikashukla_/common": "^1.0.0",
     "axios": "^1.7.5",
+    "dompurify": "^3.1.6",
     "jodit-react": "^4.1.2",
     "lucide-react": "^0.436.0",
     "react-router-dom": "^6.26.1"

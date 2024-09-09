@@ -11,7 +11,7 @@ interface BlogCardProps {
 const BlogCard = ({ id, author, title, content, publishDate }: BlogCardProps) => {
   return (
     
-    <div className="flex flex-col w-7/12 gap-2 mt-3">
+    <div className="flex flex-col w-2/5 gap-2 mt-3">
      <Link to={`/blog/${id}`}>
       <div className="flex items-center gap-2 cursor-pointer ">
         <Avatar name={author}  />
@@ -36,7 +36,7 @@ export function Avatar({ name }: { name: string }) {
   const surnameInitial = nameParts.length > 1 ? nameParts[nameParts.length - 1][0] : '';
   
   return (
-    <div className="relative inline-flex items-center justify-center w-8 h-8 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+    <div className="relative inline-flex items-center justify-center w-6 h-6 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
       <span className=" text-xs font-semibold text-gray-600 dark:text-gray-300">
         {nameParts[0][0]}{surnameInitial}
       </span>

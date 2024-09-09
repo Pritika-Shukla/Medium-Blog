@@ -1,17 +1,29 @@
 import BlogCard from "../components/BlogCard";
+import BlogSkeleton from "../components/BlogSkeleton";
 import Navbar from "../components/Navbar";
 import { useBlogs } from "../hooks";
 
 const Blog = () => {
   const { loading, blogs } = useBlogs();
   if (loading) {
-    return <p>Loading...</p>;
+    return <div>
+    <Navbar/>
+      <BlogSkeleton />
+      <BlogSkeleton />
+      <BlogSkeleton />
+      <BlogSkeleton />
+      <BlogSkeleton />
+       <BlogSkeleton /> <BlogSkeleton />
+       <BlogSkeleton />
+       <BlogSkeleton /> <BlogSkeleton />
+    </div>
+    
   }
   return (
     <div>
       <Navbar />
 
-      <div className="flex justify-center w-screen mx-auto h-screen flex-col items-center">
+      <div className="flex justify-center w-screen mx-auto  flex-col items-center">
         {blogs.map(
           (blog: {
             id: number;
@@ -28,7 +40,7 @@ const Blog = () => {
             />
           )
         )}
-      </div>
+      </div> 
     </div>
   );
 };
